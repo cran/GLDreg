@@ -24,8 +24,8 @@ obtained directly from simulated data.
 \tabular{ll}{
 Package: \tab GLDreg\cr
 Type: \tab Package\cr
-Version: \tab 1.0.1\cr
-Date: \tab 2014-12-09\cr
+Version: \tab 1.0.2\cr
+Date: \tab 2014-03-04\cr
 License: \tab GPL (>= 3.0)\cr
 }
 The primary fitting function for GLD regression model is
@@ -38,7 +38,7 @@ quantile regression is obtained using \code{\link{GLD.quantreg}}.
 Steve Su <allegro.su@gmail.com>
 }
 \references{
-Su, S. (2014) "Flexible Parametric Quantile Regression Model" Statistics &
+Su (2014) "Flexible Parametric Quantile Regression Model" Statistics &
 Computing  
 }
 \seealso{
@@ -47,8 +47,6 @@ Computing
 \examples{
 
 ## Dummy example
-
-library(GLDEX)
 
 ## Create dataset
 
@@ -63,15 +61,15 @@ dat<-data.frame(y,x)
 
 example<-GLD.lm(y~x,data=dat,fun=fun.RMFMKL.ml.m,param="fkml")
 
-## Fit FKML GLD regression with 5 simulations
+## Fit FKML GLD regression with 3 simulations
 
-fit<-GLD.lm.full(y~x,data=dat,fun=fun.RMFMKL.ml.m,param="fkml",n.simu=5)
+fit<-GLD.lm.full(y~x,data=dat,fun=fun.RMFMKL.ml.m,param="fkml",n.simu=3)
 
 ## Find median regression, use empirical method
 
 med.fit<-GLD.quantreg(0.5,fit,slope="fixed",emp=TRUE)
 
-\donttest{
+\dontrun{
 
 ## Extract the Engel dataset 
 

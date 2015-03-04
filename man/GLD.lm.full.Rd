@@ -77,7 +77,7 @@ coefficients is the same as the estimated parameters obtained in
 
 }
 \references{
-Su (In Press) "Flexible Parametric Quantile Regression Model" Statistics &
+Su (2014) "Flexible Parametric Quantile Regression Model" Statistics &
 Computing  
 }
 \author{
@@ -89,10 +89,7 @@ Steve Su
 }
 \examples{
 
-
 ## Dummy example
-
-library(GLDEX)
 
 ## Create dataset
 
@@ -103,11 +100,11 @@ y<-3*x+rnorm(200)
 
 dat<-data.frame(y,x)
 
-## Fit FKML GLD regression with 5 simulations
+## Fit FKML GLD regression with 3 simulations
 
-fit<-GLD.lm.full(y~x,data=dat,fun=fun.RMFMKL.ml.m,param="fkml",n.simu=5)
+fit<-GLD.lm.full(y~x,data=dat,fun=fun.RMFMKL.ml.m,param="fkml",n.simu=3)
 
-\donttest{
+\dontrun{
 ## Extract the Engel dataset 
 
 library(quantreg)

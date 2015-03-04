@@ -1,5 +1,5 @@
-123c8c67763c4d5e840992956dfa5fee *DESCRIPTION
-688f05dfd7c5efcc8c4948df5e656626 *NAMESPACE
+b3edff3d11da846be5c11055400dbebc *DESCRIPTION
+c762111cd109c36145dc94f665f64ae9 *NAMESPACE
 eb13fb542a2369dde928b25446a2f2f4 *R/GLD.lm.R
 47ceee194bc74dbdb651b52f406a29fd *R/GLD.lm.full.R
 65841813cd21cfcc8531a7c902461218 *R/GLD.lm.simu.R
@@ -19,12 +19,12 @@ cffca11a10de4f6ed2e471aaeae7cbd7 *R/fun.model.lm.optim.R
 33b35bac899bb181dda56396648b170c *R/fun.simu.gld.lm.alt.R
 e9aa8970a7199eac7f115a33534f5049 *R/qqgld.default.R
 426fb189b31f5218433338841daa9266 *R/summaryGraphics.gld.lm.R
-38e7179f4d991d78f6f44ba22b473d27 *man/GLD.lm.Rd
-3ce7e5fbaf252e98667e75d30a5b62a0 *man/GLD.lm.full.Rd
-5942df2669d3fa6a6de2d63ea0cb453d *man/GLD.quantreg.Rd
-400e105673b69b702ff98fffa5cb8ee7 *man/GLDreg-package.Rd
+2896199122891ecf873f463c45e8a11f *man/GLD.lm.Rd
+1bd30419f306d33b479b4a2085b31ab0 *man/GLD.lm.full.Rd
+b59460c083b05f9b406dca55a1050513 *man/GLD.quantreg.Rd
+152a61396a3331766e87bae219821e33 *man/GLDreg-package.Rd
 30e515cf11d15036ce5e0ba36dbd03a6 *man/fittingfunctionsGLDreg.Rd
 7c4d112982e05238c2d6c492db1c098f *man/fun.mean.convert.Rd
-5a03f663816c13ce3f2440a5b712ccd7 *man/fun.plot.q.Rd
+be712e10022a0942b53056171bde41be *man/fun.plot.q.Rd
 5822fd0810d41d85ee7315775d1d600e *man/qqgld.default.Rd
-a1c72c2da08b2fea20fddbcb40494838 *man/summaryGraphics.gld.lm.Rd
+34c55f9ed2b376fbd0ceccfa03de8fbd *man/summaryGraphics.gld.lm.Rd

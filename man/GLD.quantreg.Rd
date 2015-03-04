@@ -51,7 +51,7 @@ reached. The convergence value is the same as the one from the \code{\link{optim
 function.
 }
 \references{
-Su (In Press) "Flexible Parametric Quantile Regression Model" Statistics &
+Su (2014) "Flexible Parametric Quantile Regression Model" Statistics &
 Computing  
 }
 \author{
@@ -65,8 +65,6 @@ Steve Su
 
 ## Dummy example
 
-library(GLDEX)
-
 ## Create dataset
 
 set.seed(10)
@@ -76,15 +74,15 @@ y<-3*x+rnorm(200)
 
 dat<-data.frame(y,x)
 
-## Fit FKML GLD regression with 5 simulations
+## Fit FKML GLD regression with 3 simulations
 
-fit<-GLD.lm.full(y~x,data=dat,fun=fun.RMFMKL.ml.m,param="fkml",n.simu=5)
+fit<-GLD.lm.full(y~x,data=dat,fun=fun.RMFMKL.ml.m,param="fkml",n.simu=3)
 
 ## Find median regression, use empirical method
 
 med.fit<-GLD.quantreg(0.5,fit,slope="fixed",emp=TRUE)
 
-\donttest{
+\dontrun{
 
 ## Extract the Engel dataset 
 

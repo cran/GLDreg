@@ -74,7 +74,7 @@ can just be the coefficient estimates of the regression model.
  internal programming use} 
 }
 \references{
-Su (In Press) "Flexible Parametric Quantile Regression Model" Statistics &
+Su (2014) "Flexible Parametric Quantile Regression Model" Statistics &
 Computing  
 }
 \author{
@@ -103,7 +103,7 @@ dat<-data.frame(y,x)
 
 example<-GLD.lm(y~x,data=dat,fun=fun.RMFMKL.ml.m,param="fkml")
 
-\donttest{
+\dontrun{
 
 ## Extract the Engel dataset 
 library(quantreg)
