@@ -1,5 +1,7 @@
 exportPattern("^[^\\.]")
 
 import(GLDEX)
-
+import("grDevices")
+import("graphics")
+import("stats")
 
