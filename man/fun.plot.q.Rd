@@ -48,8 +48,8 @@ fitted values.
 A graph showing quantile regression lines
 }
 \references{
-Su (In Press) "Flexible Parametric Quantile Regression Model" Statistics &
-Computing  
+Su (2015) "Flexible Parametric Quantile Regression Model" Statistics &
+Computing  May 2015, Volume 25, Issue 3, pp 635-650
 }
 \author{
 Steve Su

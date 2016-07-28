@@ -38,8 +38,8 @@ quantile regression is obtained using \code{\link{GLD.quantreg}}.
 Steve Su <allegro.su@gmail.com>
 }
 \references{
-Su (2014) "Flexible Parametric Quantile Regression Model" Statistics &
-Computing  
+Su (2015) "Flexible Parametric Quantile Regression Model" Statistics &
+Computing  May 2015, Volume 25, Issue 3, pp 635-650
 }
 \seealso{
 \pkg{GLDEX}

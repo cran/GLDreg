@@ -6,7 +6,8 @@ Graphical display of output from \code{\link{GLD.lm.full}}
 }
 \description{
 This function display the coefficients and the distribution of coefficients 
-obtained from GLD regression model.
+obtained from GLD regression model. For a discussion on goodness of fit,
+please see the description under \code{\link{GLD.lm}}.
 }
 \usage{
 summaryGraphics.gld.lm(overall.fit.obj, alpha = 0.05, label = NULL, 
@@ -19,10 +20,10 @@ An object from \code{\link{GLD.lm.full}}
 }
   \item{alpha}{
 Specifying the range of interval for the coefficients, default is 0.05, which
-specifies a 95\% interval. 
+specifies a 95\% interval. This also specifies the significance level of KS test.
 }
   \item{label}{
-A character vector indicating the labelling for the coeffiients
+A character vector indicating the labelling for the coefficients
 }
   \item{ColourVersion}{
 Whether to display colour or not, default is TRUE, if set as FALSE, a black
@@ -46,8 +47,8 @@ for clarity of display.
 Graphics displaying coefficient summary and diagnostic plot (if chosen)
 }
 \references{
-Su (In Press) "Flexible Parametric Quantile Regression Model" Statistics &
-Computing  
+Su (2015) "Flexible Parametric Quantile Regression Model" Statistics &
+Computing  May 2015, Volume 25, Issue 3, pp 635-650
 }
 \author{
 Steve Su

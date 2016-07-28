@@ -62,20 +62,21 @@ summaryGraphics.gld.lm<-
            col = columnCols[4])
     }
     if (diagnostics) {
-      dev.new()
+      dev.new(width=10,height=5)
       resid <- fit.obj[[5]]
       param <- fit.obj[[7]]
       gld.values <- fit.obj[[3]][(length(fit.obj[[3]]) - 3):length(fit.obj[[3]])]
       par(mfrow = c(1, 2))
       qqplot.gld(resid, gld.values, param = param, range = range, 
                  main = "QQ plot for residuals Version 1")
-      legend("bottomright", c(paste(toupper(param), "GLD"), 
-                              paste("(", paste(signif(gld.values, 3), collapse = ","), 
-                                    ")", sep = "")), bty = "n")
+      legend("bottomright", c(paste(toupper(param), "GLD"), paste("(", paste(signif(gld.values, 3), collapse = ","), ")", sep = "")), cex=0.8,bty = "n")
       qqplot.gld(resid, gld.values, param = param, range = range, 
                  type = "str.qqplot", main = "QQ plot for residuals Version 2")
       pval <- ks.gof(resid, "pgl", lambda1 = gld.values, param = param)$p.value
-      legend("topleft", paste("KS test\np-value=", format.pval(pval)), 
-             bty = "n")
+      diag.real<-fun.diag.ks.g(data=resid,result=gld.values, param=param,alpha=alpha)/1000*100
+
+      legend("bottomright", paste("KS test p-value=", format.pval(pval)), bty = "n")
+      legend("topleft", paste("Resample KS test > ",alpha," is ",diag.real,"%",sep=""),
+            bty = "n")
     }
   }

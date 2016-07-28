@@ -77,8 +77,8 @@ coefficients is the same as the estimated parameters obtained in
 
 }
 \references{
-Su (2014) "Flexible Parametric Quantile Regression Model" Statistics &
-Computing  
+Su (2015) "Flexible Parametric Quantile Regression Model" Statistics &
+Computing  May 2015, Volume 25, Issue 3, pp 635-650
 }
 \author{
 Steve Su

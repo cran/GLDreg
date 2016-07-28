@@ -7,11 +7,21 @@ This function fits a GLD regression linear model
 \description{
 Similar to \code{\link{lm}}, this function fits a linear model using RS/FKML
 GLDs and assess the goodness of fit of GLD with respect to the data via qq plot
-and Kolmogorov-Smirnoff test.
+and Kolmogorov-Smirnoff (KS) test. Note that the use of KS test when parameters 
+of a distribution are estimated from data is generally frowned upon. This is because 
+one often gets inflated p-value with increased type II error due to the fact that the 
+KS test requires independence between test sample and parameters of distribution.
+Therefore, the the resample KS test over 1000 simulation runs from GLDEX package is 
+probably a more reasonable measure. It is probably reasonable to consider the resample 
+KS test may in fact decrease the p-values, as testing is done on resampled data from 
+fitted distribution so there is a certain degree of inaccuracy there. The provision of 
+these results is to give some indication of optimistic and pessimistic goodness
+of fit measure, as currently, there is an absence of a specialised GLD goodness of fit test. 
+When in doubt, QQ plot should always be considered ahead of these results.
 }
 \usage{
 GLD.lm(formula, data, param, maxit = 20000, fun, method = "Nelder-Mead", 
-diagnostics = TRUE, range = c(0.01, 0.99), init = NULL)
+diagnostics = TRUE, range = c(0.01, 0.99), init = NULL, alpha = 0.05)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -56,6 +66,11 @@ Choose a different set of initial values to start the optimisation process. This
 can either be full set of parameters including GLD parameter estimates, or it
 can just be the coefficient estimates of the regression model. 
 }
+  \item{alpha}{
+Significant level of KS test.
+}
+
+
 }
 \value{
 
@@ -74,8 +89,8 @@ can just be the coefficient estimates of the regression model.
  internal programming use} 
 }
 \references{
-Su (2014) "Flexible Parametric Quantile Regression Model" Statistics &
-Computing  
+Su (2015) "Flexible Parametric Quantile Regression Model" Statistics &
+Computing  May 2015, Volume 25, Issue 3, pp 635-650
 }
 \author{
 Steve Su

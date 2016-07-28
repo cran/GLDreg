@@ -1,6 +1,6 @@
 GLD.lm<-
 function (formula, data, param, maxit = 20000, fun, method = "Nelder-Mead", 
-    diagnostics = TRUE, range = c(0.01, 0.99),init=NULL) 
+    diagnostics = TRUE, range = c(0.01, 0.99),init=NULL,alpha=0.05) 
 {
     init.mod <- lm(formula, data = data)
     y <- init.mod$model[, 1]
@@ -82,7 +82,12 @@ else if(!is.null(init) & length(init.mod$coeff)!=length(init)){
             paste("(", paste(signif(gld.values, 3), collapse = ","), 
                 ")", sep = "")), bty = "n")
         pval <- ks.gof(resid, "pgl", lambda1 = gld.values, param = param)$p.value
-        legend("topleft", paste("KS test\np-value=", format.pval(pval)), 
+
+diag.real<-fun.diag.ks.g(data=resid,result=gld.values,
+param=param,alpha=alpha)/1000*100
+
+legend("topleft", paste("KS test p-value=", format.pval(pval),"\n",
+"Resample KS test > ",alpha," is",diag.real,"%"), 
             bty = "n")
     }
 
