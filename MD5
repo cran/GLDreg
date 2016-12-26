@@ -1,4 +1,4 @@
-61542fd121bd5aacd425e033e8201489 *DESCRIPTION
+aa4c423550252ba47c53fdb37badb554 *DESCRIPTION
 4c7c23b0b1d010e963534e7462c09dfa *NAMESPACE
 d0060e9c1f8954d6b12e4e9281251f2e *R/GLD.lm.R
 47ceee194bc74dbdb651b52f406a29fd *R/GLD.lm.full.R
@@ -22,7 +22,7 @@ e9aa8970a7199eac7f115a33534f5049 *R/qqgld.default.R
 efc11adf2c66fea93c8cd489ecb45170 *man/GLD.lm.Rd
 94b8710f87b754acbf8950511221f876 *man/GLD.lm.full.Rd
 87c0aecda2c434afb45dd96b8acbed3c *man/GLD.quantreg.Rd
-1373ff4eaf60d0cbbccd64c12f81b344 *man/GLDreg-package.Rd
+79a928a48d1c0541672e2ee599c60f29 *man/GLDreg-package.Rd
 30e515cf11d15036ce5e0ba36dbd03a6 *man/fittingfunctionsGLDreg.Rd
 7c4d112982e05238c2d6c492db1c098f *man/fun.mean.convert.Rd
 876843d634dc576f7b3418281c055f50 *man/fun.plot.q.Rd

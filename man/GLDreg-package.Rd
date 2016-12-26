@@ -24,8 +24,8 @@ obtained directly from simulated data.
 \tabular{ll}{
 Package: \tab GLDreg\cr
 Type: \tab Package\cr
-Version: \tab 1.0.2\cr
-Date: \tab 2014-03-04\cr
+Version: \tab 1.0.5\cr
+Date: \tab 2016-12-26\cr
 License: \tab GPL (>= 3.0)\cr
 }
 The primary fitting function for GLD regression model is
