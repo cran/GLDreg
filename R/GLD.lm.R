@@ -1,24 +1,23 @@
 GLD.lm<-
 function (formula, data, param, maxit = 20000, fun, method = "Nelder-Mead", 
-    diagnostics = TRUE, range = c(0.01, 0.99),init=NULL,alpha=0.05) 
+    diagnostics = TRUE, range = c(0.01, 0.99), init = NULL, alpha = 0.05) 
 {
     init.mod <- lm(formula, data = data)
     y <- init.mod$model[, 1]
     x <- model.matrix(init.mod)
-
-if(is.null(init)){
-    init.1 <- init.mod$coeff
-    init.2 <- fun(init.mod$resid)}
-
-else if(!is.null(init) & length(init.mod$coeff)==length(init)){
-    init.1 <- init
-    init.2 <- fun(y-x%*%init)}
-
-else if(!is.null(init) & length(init.mod$coeff)!=length(init)){
-    init.len<-length(init)
-    init.1 <- init[1:(init.len-4)]
-    init.2 <- init[(init.len-3):init.len]}
-
+    if (is.null(init)) {
+        init.1 <- init.mod$coeff
+        init.2 <- fun(init.mod$resid)
+    }
+    else if (!is.null(init) & length(init.mod$coeff) == length(init)) {
+        init.1 <- init
+        init.2 <- fun(y - x %*% init)
+    }
+    else if (!is.null(init) & length(init.mod$coeff) != length(init)) {
+        init.len <- length(init)
+        init.1 <- init[1:(init.len - 4)]
+        init.2 <- init[(init.len - 3):init.len]
+    }
     value <- c(init.1, init.2[2:4])
     if (identical(fun, fun.RMFMKL.ml.m) | identical(fun, fun.RMFMKL.ml) | 
         identical(fun, fun.RPRS.ml.m) | identical(fun, fun.RPRS.ml)) {
@@ -27,7 +26,7 @@ else if(!is.null(init) & length(init.mod$coeff)!=length(init)){
         result <- optim(result$par, fun.model.lm.optim, x = x, 
             y = y, param = param, control = list(maxit = 20000), 
             method = method)
-        msgr<-"Maximum Likelihood Estimation"
+        msgr <- "Maximum Likelihood Estimation"
     }
     if (identical(fun, fun.RMFMKL.lm) | identical(fun, fun.RPRS.lm)) {
         result <- optim(value, fun.model.lm.optim.Lmoment, x = x, 
@@ -36,7 +35,7 @@ else if(!is.null(init) & length(init.mod$coeff)!=length(init)){
         result <- optim(result$par, fun.model.lm.optim.Lmoment, 
             x = x, y = y, param = param, control = list(maxit = 20000), 
             method = method)
-        msgr<-"L moment matching"
+        msgr <- "L moment matching"
     }
     full.result <- result$par[-c((length(result$par) - 2):length(result$par))]
     adj <- mean(y - x %*% full.result)
@@ -44,11 +43,9 @@ else if(!is.null(init) & length(init.mod$coeff)!=length(init)){
         full.result[1] <- full.result[1] + adj
     }
     if (is.element("(Intercept)", dimnames(x)[[2]]) == FALSE) {
-        warning("Bias adjustment is provided separately from estimated 
-        parameters, adjustment is necessary to ensure residuals sum to zero")
+        warning("Bias adjustment is provided separately from estimated \n        parameters, adjustment is necessary to ensure residuals sum to zero")
     }
-    full.result <- c(full.result, fun.mean.convert(c(0, 
-    result$par[c((length(result$par) - 
+    full.result <- c(full.result, fun.mean.convert(c(0, result$par[c((length(result$par) - 
         2):length(result$par))]), param))
     names(full.result)[1:(length(full.result) - 4)] <- dimnames(x)[[2]]
     names(full.result)[(length(full.result) - 3):length(full.result)] <- paste("L", 
@@ -62,7 +59,7 @@ else if(!is.null(init) & length(init.mod$coeff)!=length(init)){
     message1 <- paste("This analysis was carried out using", 
         toupper(param), "GLD")
     message2 <- paste("The error distribution was estimated using", 
-                  msgr)
+        msgr)
     message3 <- paste("The optimisation procedure used was", 
         as.character(substitute(method)), "and it has", converge.report)
     messages <- rbind(message1, message2, message3)
@@ -82,18 +79,15 @@ else if(!is.null(init) & length(init.mod$coeff)!=length(init)){
             paste("(", paste(signif(gld.values, 3), collapse = ","), 
                 ")", sep = "")), bty = "n")
         pval <- ks.gof(resid, "pgl", lambda1 = gld.values, param = param)$p.value
-
-diag.real<-fun.diag.ks.g(data=resid,result=gld.values,
-param=param,alpha=alpha)/1000*100
-
-legend("topleft", paste("KS test p-value=", format.pval(pval),"\n",
-"Resample KS test > ",alpha," is",diag.real,"%"), 
-            bty = "n")
+        diag.real <- fun.diag.ks.g(data = resid, result = gld.values, 
+            param = param, alpha = alpha)/1000 * 100
+        ddst.pval<-ddst.uniform.test(pgl(resid,gld.values,param=param),compute.p=T)$p.value
+        legend("topleft", paste("KS test p-value=", format.pval(pval), 
+            "\n", "Data driven smooth test p-value=",format.pval(ddst.pval), "\n",
+            "Resample KS test > ", alpha, " is", diag.real, "%"), bty = "n")
     }
-
-print(messages)
-print(full.result)
-
+    print(messages)
+    print(full.result)
     return(list(Message = messages, `Bias Correction` = adj, 
         `Estimated parameters` = full.result, Fitted = fitted, 
         Residual = resid, formula = formula, param = param, y = y, 

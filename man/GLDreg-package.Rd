@@ -14,8 +14,8 @@ proposed method has some major advantages: 1) it provides a reference line which
 is very robust to outliers with the attractive property of zero mean residuals 
 and 2) it gives a unified, elegant quantile regression model from the reference 
 line with smooth regression coefficients across different quantiles. The 
-goodness of fit of the proposed model can be assessed via QQ plots and the 
-Kolmogorov-Smirnov test, to ensure the appropriateness of the statistical 
+goodness of fit of the proposed model can be assessed via QQ plots and 
+Kolmogorov-Smirnov tests and Data Driven Smooth Test, to ensure the appropriateness of the statistical 
 inference under consideration. Statistical distributions of coefficients of the
 GLD regression line are obtained using simulation, and interval estimates are 
 obtained directly from simulated data. 
@@ -24,8 +24,8 @@ obtained directly from simulated data.
 \tabular{ll}{
 Package: \tab GLDreg\cr
 Type: \tab Package\cr
-Version: \tab 1.0.5\cr
-Date: \tab 2016-12-26\cr
+Version: \tab 1.0.6\cr
+Date: \tab 2017-02-05\cr
 License: \tab GPL (>= 3.0)\cr
 }
 The primary fitting function for GLD regression model is

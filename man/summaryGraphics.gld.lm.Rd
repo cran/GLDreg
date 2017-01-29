@@ -20,7 +20,7 @@ An object from \code{\link{GLD.lm.full}}
 }
   \item{alpha}{
 Specifying the range of interval for the coefficients, default is 0.05, which
-specifies a 95\% interval. This also specifies the significance level of KS test.
+specifies a 95\% interval. This also specifies the significance level of KS resample test. 
 }
   \item{label}{
 A character vector indicating the labelling for the coefficients

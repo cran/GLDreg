@@ -17,6 +17,8 @@ KS test may in fact decrease the p-values, as testing is done on resampled data 
 fitted distribution so there is a certain degree of inaccuracy there. The provision of 
 these results is to give some indication of optimistic and pessimistic goodness
 of fit measure, as currently, there is an absence of a specialised GLD goodness of fit test. 
+A generic Data Driven Smooth Test from ddst library in R is also incorporated to assess goodness of fit.
+
 When in doubt, QQ plot should always be considered ahead of these results.
 }
 \usage{
