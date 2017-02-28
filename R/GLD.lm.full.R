@@ -12,7 +12,7 @@ if(length(formula.info)==2 & formula.info[[2]]=="."){
 data<-na.omit(data)
 
 fit.simu.f<-fun.simu.gld.lm.alt(n.simu,
-fit$y+rgl(nrow(fit$Fitted),
+fit$Fitted+rgl(nrow(fit$Fitted),
 fit$'Estimated parameters'[match(c("L1","L2","L3","L4"),
 names(fit$'Estimated parameters'))],param=fit$param)~.,
 fit,data=data[,-c(match(formula.info[1],dimnames(data)[[2]]))],param=fit$param,
@@ -24,7 +24,7 @@ if(length(formula.info)!=2 | formula.info[[2]]!="."){
 
 
 fit.simu.f<-fun.simu.gld.lm.alt(n.simu,
-update(fit$formula,fit$y+rgl(nrow(fit$Fitted),
+update(fit$formula,fit$Fitted+rgl(nrow(fit$Fitted),
 fit$'Estimated parameters'[match(c("L1","L2","L3","L4"),
 names(fit$'Estimated parameters'))],param=fit$param)~.),
 fit,data=na.omit(subset(data,select=all.vars(fit$formula))),
