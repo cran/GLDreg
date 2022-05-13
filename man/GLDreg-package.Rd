@@ -3,43 +3,53 @@
 \alias{GLDreg}
 \docType{package}
 \title{
-This package fits standard and quantile regression models using RS and FMKL/FKML 
-generalised lambda distributions via maximum likelihood estimation and L moment 
+This package fits standard and quantile and accerlerated Failure Time regression 
+models using RS and FMKL/FKML generalised lambda distributions via maximum 
+likelihood estimation and L moment 
 matching.
 }
 \description{
 Owing to the rich shapes of GLDs, GLD standard/quantile regression is a 
-competitive flexible model compared to standard/quantile regression.  The 
+competitive flexible model compared to standard/quantile regression. The 
 proposed method has some major advantages: 1) it provides a reference line which 
 is very robust to outliers with the attractive property of zero mean residuals 
 and 2) it gives a unified, elegant quantile regression model from the reference 
 line with smooth regression coefficients across different quantiles. The 
 goodness of fit of the proposed model can be assessed via QQ plots and 
-Kolmogorov-Smirnov tests and Data Driven Smooth Test, to ensure the appropriateness of the statistical 
-inference under consideration. Statistical distributions of coefficients of the
-GLD regression line are obtained using simulation, and interval estimates are 
-obtained directly from simulated data. 
+Kolmogorov-Smirnov tests and Data Driven Smooth Test, to ensure the 
+appropriateness of the statistical inference under consideration. Statistical 
+distributions of coefficients of the GLD regression line are obtained using 
+simulation, and interval estimates are obtained directly from simulated data. 
 }
 \details{
 \tabular{ll}{
 Package: \tab GLDreg\cr
 Type: \tab Package\cr
-Version: \tab 1.0.7\cr
-Date: \tab 2017-03-15\cr
-License: \tab GPL (>= 3.0)\cr
+Version: \tab 1.1.0\cr
+Date: \tab 2022-05-04\cr
+License: \tab CC BY-NC-SA 4.0 \cr
 }
 The primary fitting function for GLD regression model is
 \code{\link{GLD.lm.full}}. The output of \code{\link{GLD.lm.full}} can then be
 passed to \code{\link{summaryGraphics.gld.lm}} to display coefficients of GLD
 regression model graphically. Once a GLD reference model is obtained,  
 quantile regression is obtained using \code{\link{GLD.quantreg}}.
+
+The corresponding fitting algorithms for survival data are 
+\code{\link{GLD.lm.full.surv}} which can then be passed to 
+\code{\link{summaryGraphics.gld.surv.lm}} to display coefficients of GLD
+regression model graphically.
+
 }
 \author{
 Steve Su <allegro.su@gmail.com>
 }
 \references{
-Su (2015) "Flexible Parametric Quantile Regression Model" Statistics &
-Computing  May 2015, Volume 25, Issue 3, pp 635-650
+Su, S. (2015) "Flexible Parametric Quantile Regression Model" Statistics &
+Computing 25 (3). 635-650. doi:10.1007/s11222-014-9457-1   
+
+Su S. (2021) "Flexible parametric accelerated failure time model" J Biopharm Stat. 
+2021 Sep 31(5):650-667. doi:10.1080/10543406.2021.1934854
 }
 \seealso{
 \pkg{GLDEX}
@@ -101,6 +111,19 @@ xlab="income",ylab="Food Expense")
 
 engel.fit.all<-GLD.lm.full(foodexp~income,data=engel,
 param="fmkl",fun=fun.RMFMKL.lm)
+
+## Fit Accelerated Failure Time model to actg320 data:
+
+library(mlr3proba)
+
+actg320.rs<-GLD.lm.full.surv(log(time)~factor(txgrp)+hemophil+cd4+priorzdv+age,
+censoring=actg320[which(actg320$txgrp!=3 & actg320$txgrp!=4),]$censor, 
+data=actg320[which(actg320$txgrp!=3 & actg320$txgrp!=4),],
+param="rs",fun=fun.RPRS.ml.m,summary.plot=F,n.simu=1000)
+
+summaryGraphics.gld.surv.lm(actg320.rs,label=c("(Intercept)",
+"IDV versus no IDV","Hemophiliac","Baseline CD4",
+"Months of prior \n ZDV use","Age"),exp="TRUE")
 
 }
 }

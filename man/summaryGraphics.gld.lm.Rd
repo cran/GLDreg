@@ -31,7 +31,7 @@ and white plot is given. This is only applicable to the coefficient summary
 graph and has no effect on QQ plots.
 }
   \item{diagnostics}{
-If TRUE, then QQ plot will be given along with Kolmogorov-Smirnoff test results
+If TRUE, then QQ plot will be given along with various goodness of fit test results
 }
   \item{range}{
 The is the quantile range to plot the QQ plot, defaults to 0.01 and 0.99 to
