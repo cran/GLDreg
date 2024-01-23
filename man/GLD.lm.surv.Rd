@@ -30,7 +30,7 @@ Dataset containing variables of the model
 Can be "rs", "fmkl" or "fkml"
 }
   \item{maxit}{
-%%     ~~Describe \code{maxit} here~~
+Maximum number of iterations for numerical optimisation 
 }
   \item{fun}{
 If param="fmkl" or "fkml", this can be one of \code{\link{fun.RMFMKL.ml.m}}, 
@@ -115,12 +115,20 @@ Steve Su
 \examples{
 
 \dontrun{
-library(mlr3proba)
 
-actg320.rs<-GLD.lm.full(log(time)~factor(txgrp)+hemophil+cd4+priorzdv+age,
-censoring=actg320[which(actg320$txgrp!=3 & actg320$txgrp!=4),]$censor, 
-data=actg320[which(actg320$txgrp!=3 & actg320$txgrp!=4),],
+# Note the actg.rs1 differs from GLD.lm.full.surv because adj.int is set as 
+# TRUE in GLD.lm.surv by default but adj.int is set as FALSE in 
+# GLD.lm.full.surv by default
+
+actg.rs1<-GLD.lm.surv(log(time)~factor(txgrp)+hemophil+cd4+priorzdv+age,
+censoring=actg[which(actg$txgrp!=3 & actg$txgrp!=4),]$censor, 
+data=actg[which(actg$txgrp!=3 & actg$txgrp!=4),],
 param="rs",fun=fun.RPRS.ml.m)
+
+actg.rs2<-GLD.lm.surv(log(time)~factor(txgrp)+hemophil+cd4+priorzdv+age,
+censoring=actg[which(actg$txgrp!=3 & actg$txgrp!=4),]$censor, 
+data=actg[which(actg$txgrp!=3 & actg$txgrp!=4),],
+param="rs",fun=fun.RPRS.ml.m,adj.int=FALSE)
 
 }
 }

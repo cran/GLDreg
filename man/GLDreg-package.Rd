@@ -25,8 +25,8 @@ simulation, and interval estimates are obtained directly from simulated data.
 \tabular{ll}{
 Package: \tab GLDreg\cr
 Type: \tab Package\cr
-Version: \tab 1.1.0\cr
-Date: \tab 2022-05-04\cr
+Version: \tab 1.1.1\cr
+Date: \tab 2024-01-23\cr
 License: \tab CC BY-NC-SA 4.0 \cr
 }
 The primary fitting function for GLD regression model is
@@ -112,16 +112,14 @@ xlab="income",ylab="Food Expense")
 engel.fit.all<-GLD.lm.full(foodexp~income,data=engel,
 param="fmkl",fun=fun.RMFMKL.lm)
 
-## Fit Accelerated Failure Time model to actg320 data:
+## Fit Accelerated Failure Time model to actg data:
 
-library(mlr3proba)
-
-actg320.rs<-GLD.lm.full.surv(log(time)~factor(txgrp)+hemophil+cd4+priorzdv+age,
-censoring=actg320[which(actg320$txgrp!=3 & actg320$txgrp!=4),]$censor, 
-data=actg320[which(actg320$txgrp!=3 & actg320$txgrp!=4),],
+actg.rs<-GLD.lm.full.surv(log(time)~factor(txgrp)+hemophil+cd4+priorzdv+age,
+censoring=actg[which(actg$txgrp!=3 & actg$txgrp!=4),]$censor, 
+data=actg[which(actg$txgrp!=3 & actg$txgrp!=4),],
 param="rs",fun=fun.RPRS.ml.m,summary.plot=F,n.simu=1000)
 
-summaryGraphics.gld.surv.lm(actg320.rs,label=c("(Intercept)",
+summaryGraphics.gld.surv.lm(actg.rs,label=c("(Intercept)",
 "IDV versus no IDV","Hemophiliac","Baseline CD4",
 "Months of prior \n ZDV use","Age"),exp="TRUE")
 

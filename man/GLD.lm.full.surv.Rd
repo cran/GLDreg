@@ -33,7 +33,7 @@ Dataset containing variables of the model
 Can be "rs", "fmkl" or "fkml"
 }
   \item{maxit}{
-%%     ~~Describe \code{maxit} here~~
+Maximum number of iterations for numerical optimisation 
 }
   \item{fun}{
 If param="fmkl" or "fkml", this can be one of \code{\link{fun.RMFMKL.ml.m}}, 
@@ -119,11 +119,10 @@ Steve Su
 
 \examples{
 \dontrun{
-library(mlr3proba)
 
-actg320.rs<-GLD.lm.full.surv(log(time)~factor(txgrp)+hemophil+cd4+priorzdv+age,
-censoring=actg320[which(actg320$txgrp!=3 & actg320$txgrp!=4),]$censor, 
-data=actg320[which(actg320$txgrp!=3 & actg320$txgrp!=4),],
+actg.rs<-GLD.lm.full.surv(log(time)~factor(txgrp)+hemophil+cd4+priorzdv+age,
+censoring=actg[which(actg$txgrp!=3 & actg$txgrp!=4),]$censor, 
+data=actg[which(actg$txgrp!=3 & actg$txgrp!=4),],
 param="rs",fun=fun.RPRS.ml.m,summary.plot=F,n.simu=1000)
 
 }}
