@@ -1,4 +1,4 @@
-10585cdb8ad1d86766fe66b376387df9 *DESCRIPTION
+d5d57f98b0eaf9e7f2ce968bef783cb5 *DESCRIPTION
 c088ca904fb8489c46f9442c02525ec8 *NAMESPACE
 18aff0774b84eb13cbce05c28c242373 *R/GLD.lm.R
 ecd1bab797afa84c0f45b43995d0a682 *R/GLD.lm.full.R
@@ -29,16 +29,16 @@ e9aa8970a7199eac7f115a33534f5049 *R/qqgld.default.R
 8f56a9b04723f06261e5de8d707269b6 *R/survival.mle.R
 381e790b3e75c36ec3ff354077621ac6 *data/actg.rda
 dcfc80ab10d5f5c3725da87935f8087c *man/FittingfunctionsAFT.Rd
-1c61f153ac89d9da6beb10f4d8194cbb *man/GLD.lm.Rd
-94b8710f87b754acbf8950511221f876 *man/GLD.lm.full.Rd
-70adfe954a5d9ca856729b04d9e7b6f9 *man/GLD.lm.full.surv.Rd
-f2096579ea2da153e637c4302d92ede7 *man/GLD.lm.surv.Rd
+7abc71f046680e1fa2de85e6acffcdc7 *man/GLD.lm.Rd
+129ec991e1f5201b19182707adc5b64b *man/GLD.lm.full.Rd
+a1fd13bcc585ebb566ff0e7b3a815987 *man/GLD.lm.full.surv.Rd
+753896803f6ce14365ed3603742d5931 *man/GLD.lm.surv.Rd
 87c0aecda2c434afb45dd96b8acbed3c *man/GLD.quantreg.Rd
 21aeda7f79f4f422f56f169df3e9ed2a *man/GLDreg-package.Rd
 37484e0115f24acfa53fe0f4146d29e4 *man/actg.Rd
 3153d90d3e4bd2095af879e016c6f3fb *man/fittingfunctionsGLDreg.Rd
 7c4d112982e05238c2d6c492db1c098f *man/fun.mean.convert.Rd
 876843d634dc576f7b3418281c055f50 *man/fun.plot.q.Rd
-5822fd0810d41d85ee7315775d1d600e *man/qqgld.default.Rd
+c1b07bd680bde7367cf99cb58ac6ca0f *man/qqgld.default.Rd
 6a4408c34e28305bdd895ab344c34106 *man/summaryGraphics.gld.lm.Rd
 256569ce30131516fb3518b05f08f276 *man/summaryGraphics.gld.surv.lm.Rd

@@ -30,15 +30,15 @@ Can be "rs", "fmkl" or "fkml"
 Maximum number of iterations for numerical optimisation 
 }
   \item{fun}{
-If param="fmkl" or "fkml", this can be one of \code{\link{fun.RMFMKL.ml.m}}, 
-\code{\link{fun.RMFMKL.ml}}, for maximum
+If param="fmkl" or "fkml", this can be one of \code{\link[GLDEX]{fun.RMFMKL.ml.m}}, 
+\code{\link[GLDEX]{fun.RMFMKL.ml}}, for maximum
 likelihood estimation (*.ml.m is a faster implementation of *.ml) and 
-\code{\link{fun.RMFMKL.lm}} for L moment matching.
+\code{\link[GLDEX]{fun.RMFMKL.lm}} for L moment matching.
 
-If param="rs", this can be one of \code{\link{fun.RPRS.ml.m}}, 
-\code{\link{fun.RPRS.ml}}, for maximum
+If param="rs", this can be one of \code{\link[GLDEX]{fun.RPRS.ml.m}}, 
+\code{\link[GLDEX]{fun.RPRS.ml}}, for maximum
 likelihood estimation (*.ml.m is a faster implementation of *.ml) and 
-\code{\link{fun.RPRS.lm}} for L moment matching.
+\code{\link[GLDEX]{fun.RPRS.lm}} for L moment matching.
 
 }
   \item{method}{

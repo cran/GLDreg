@@ -64,7 +64,7 @@ The original y vector, i.e., the corresponding y coordinates including NAs.
 R, with modifications from Steve Su
 }
 \seealso{
-\code{\link{qqplot.gld}}, \code{\link{qqplot.gld.bi}} 
+\code{\link[GLDEX]{qqplot.gld}}, \code{\link[GLDEX]{qqplot.gld.bi}} 
 }
 \examples{
 x<-rnorm(100)
